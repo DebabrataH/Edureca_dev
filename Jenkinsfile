@@ -15,7 +15,7 @@ pipeline{
           stage('Compile'){
               agent any
               steps{
-                  echo 'compiling...'
+                  echo 'compiling..'
                   sh 'mvn compile'
               }
           }
@@ -39,7 +39,6 @@ pipeline{
            stage('MetricCheck'){
                agent any
               steps{
-	          echo 'Code coverage'
                   sh 'mvn cobertura:cobertura -Dcobertura.report.format=xml'
               }
                post {
@@ -48,9 +47,9 @@ pipeline{
                }
            }		
           }
-           stage('Package'){
-               agent any
-               steps{
+          stage('Package'){
+              agent any
+              steps{
                   sh 'mvn package'
               }
           }
