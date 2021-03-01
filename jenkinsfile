@@ -39,6 +39,7 @@ pipeline{
            stage('MetricCheck'){
                agent any
               steps{
+	          echo 'Code coverage'
                   sh 'mvn cobertura:cobertura -Dcobertura.report.format=xml'
               }
                post {
